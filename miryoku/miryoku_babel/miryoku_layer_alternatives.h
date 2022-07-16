@@ -116,7 +116,7 @@ U_NP,        U_NP,              U_NP,              &lt U_MEDIA ESC,   &lt U_NAV 
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
 &kp GRAVE,   &kp Q,             &kp W,             &kp E,             &kp R,             &kp T,             &kp Y,             &kp U,             &kp I,             &kp O,             &kp P,              &kp BSLH,  \
-&kp LCTRL,   &hm LGUI A,        &hm LALT S,        &hm LCTRL D,       &hm LSHFT F,       &kp G,             &kp H,             &hm LSHFT J,       &hm LCTRL K,       &hm LALT L,        &hm LGUI SQT,       &kp SQT,   \
+&kp LCTRL,   &hm LGUI A,        &hm LALT S,        &hm LCTRL D,       &hm LSHFT F,       &kp G,             &kp H,             &hm LSHFT J,       &hm LCTRL K,       &hm LALT L,        &hm LGUI SEMI,       &kp SQT,   \
 &kp LSHFT,   &lt U_BUTTON Z,    &hm RALT X,        &kp C,             &kp V,             &kp B,             &kp N,             &kp M,             &kp COMMA,         &hm RALT DOT,      &lt U_BUTTON SLASH, &kp COLON, \
 U_NP,        U_NP,              U_NP,              &lt U_MEDIA ESC,   &lt U_NAV SPC,     &lt U_MOUSE TAB,   &lt U_SYM RET,     &lt U_NUM BSPC,    &lt U_FUN DEL,     U_NP,              U_NP,               U_NP
 
@@ -237,7 +237,7 @@ U_NP,        U_NP,              U_NP,              &kp ESC,           &kp SPC,  
 
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY \
 &kp GRAVE,   &kp Q,             &kp W,             &kp E,             &kp R,             &kp T,             &kp Y,             &kp U,             &kp I,             &kp O,             &kp P,              &kp BSLH,  \
-&kp LCTRL,   &kp A,             &kp S,             &kp D,             &kp F,             &kp G,             &kp H,             &kp J,             &kp K,             &kp L,             &kp SQT,            &kp SQT,   \
+&kp LCTRL,   &kp A,             &kp S,             &kp D,             &kp F,             &kp G,             &kp H,             &kp J,             &kp K,             &kp L,             &kp SEMI,            &kp SQT,   \
 &kp LSHFT,   &kp Z,             &kp X,             &kp C,             &kp V,             &kp B,             &kp N,             &kp M,             &kp COMMA,         &kp DOT,           &kp SLASH,          &kp COLON, \
 U_NP,        U_NP,              U_NP,              &kp ESC,           &kp SPC,           &kp TAB,           &kp RET,           &kp BSPC,          &kp DEL,           U_NP,              U_NP,               U_NP
 
