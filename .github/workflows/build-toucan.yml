@@ -10,4 +10,7 @@ jobs:
     with:
       board: '["seeeduino_xiao_ble"]'
       shield: '["toucan_left nice_view_gem","toucan_right"]'
+      alphas: '["qwerty"]'
+      nav: '["vi"]'
+      clipboard: '["windows"]'
       branches: '["zmkfirmware/zmk/v0.3.0"]'
