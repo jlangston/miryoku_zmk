@@ -4,3 +4,11 @@
 #include "../miryoku/custom_config.h"
 #include "../miryoku/mapping/42/corne.h"
 #include "../miryoku/miryoku.dtsi"
+
+// NAV layer = 4 in Miryoku
+&glidepoint_listener {
+    status = "okay";
+    scroller {
+        layers = <4>;
+    };
+};
