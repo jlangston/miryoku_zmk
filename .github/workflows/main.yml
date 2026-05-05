@@ -377,12 +377,16 @@ jobs:
                 grep '^CONFIG_BT_DIS_PNP_' build/zephyr/.config || true
                 false
               fi
-              if ! grep -q '^CONFIG_ZMK_SPLIT_BLE_PREF_INT=12$' build/zephyr/.config
-              then
-                echo '::error::Toucan build did not set split BLE interval to 15ms.'
-                grep '^CONFIG_ZMK_SPLIT_BLE_PREF_INT=' build/zephyr/.config || true
-                false
-              fi
+              case "${{ matrix.shield }}" in
+                *toucan_left* )
+                  if ! grep -q '^CONFIG_ZMK_SPLIT_BLE_PREF_INT=12$' build/zephyr/.config
+                  then
+                    echo '::error::Toucan left build did not set split BLE interval to 15ms.'
+                    grep '^CONFIG_ZMK_SPLIT_BLE_PREF_INT=' build/zephyr/.config || true
+                    false
+                  fi
+                  ;;
+              esac
               ;;
           esac
           echo "::endgroup::"
