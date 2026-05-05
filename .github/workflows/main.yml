@@ -371,6 +371,12 @@ jobs:
                 grep '^CONFIG_BT_DEVICE_APPEARANCE=' build/zephyr/.config || true
                 false
               fi
+              if ! grep -q '^CONFIG_BT_DIS_PNP_VID=0x1209$' build/zephyr/.config || ! grep -q '^CONFIG_BT_DIS_PNP_PID=0x0001$' build/zephyr/.config
+              then
+                echo '::error::Toucan build did not set the macOS-safe PnP ID.'
+                grep '^CONFIG_BT_DIS_PNP_' build/zephyr/.config || true
+                false
+              fi
               ;;
           esac
           echo "::endgroup::"
