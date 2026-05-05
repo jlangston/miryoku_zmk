@@ -325,6 +325,16 @@ jobs:
           EX_UNAVAILABLE='69'
           EX_DATAERR='65'
           cd "${GITHUB_WORKSPACE}/zmk/app"
+          case "${{ matrix.shield }}" in
+            *toucan* )
+              perl -0pi -e 's/(config BT_DEVICE_APPEARANCE\s+default )961/${1}960/' Kconfig
+              appearance_files="$(grep -RIl 'BT_DATA_GAP_APPEARANCE' src boards include 2>/dev/null || true)"
+              if [ -n "$appearance_files" ]
+              then
+                perl -0pi -e 's/BT_DATA_BYTES\(\s*BT_DATA_GAP_APPEARANCE\s*,\s*0xC1\s*,\s*0x03\s*\)/BT_DATA_BYTES(BT_DATA_GAP_APPEARANCE, 0xC0, 0x03)/g' $appearance_files
+              fi
+              ;;
+          esac
           {
             west $west_debug build -b ${{ matrix.board }} $west_build_debug -- ${{ steps.main.outputs.shield_arg }} ${{ steps.main.outputs.modules_arg }} -DZMK_CONFIG="${GITHUB_WORKSPACE}/miryoku_zmk/config" ||
             echo "$build_failed_message $?." ;
@@ -353,6 +363,16 @@ jobs:
           then
             false
           fi
+          case "${{ matrix.shield }}" in
+            *toucan* )
+              if ! grep -q '^CONFIG_BT_DEVICE_APPEARANCE=960$' build/zephyr/.config
+              then
+                echo '::error::Toucan build did not set BLE appearance to Generic HID (0x03C0 / 960).'
+                grep '^CONFIG_BT_DEVICE_APPEARANCE=' build/zephyr/.config || true
+                false
+              fi
+              ;;
+          esac
           echo "::endgroup::"
 
           echo "::group::copy"
@@ -372,4 +392,3 @@ jobs:
         with:
           name: ${{ steps.main.outputs.run_name }}
           path: ${{ steps.main.outputs.artifact_dir }}
-
