@@ -379,9 +379,9 @@ jobs:
               fi
               case "${{ matrix.shield }}" in
                 *toucan_left* )
-                  if ! grep -q '^CONFIG_ZMK_SPLIT_BLE_PREF_INT=12$' build/zephyr/.config
+                  if ! grep -q '^CONFIG_ZMK_SPLIT_BLE_PREF_INT=24$' build/zephyr/.config
                   then
-                    echo '::error::Toucan left build did not set split BLE interval to 15ms.'
+                    echo '::error::Toucan left build did not set split BLE interval to 30ms.'
                     grep '^CONFIG_ZMK_SPLIT_BLE_PREF_INT=' build/zephyr/.config || true
                     false
                   fi
