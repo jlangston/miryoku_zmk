@@ -5,10 +5,15 @@
 #include "../miryoku/mapping/42/corne.h"
 #include "../miryoku/miryoku.dtsi"
 
-// NAV layer = 4 in Miryoku
-&glidepoint_listener {
+// NAV layer = 4, MOUSE layer = 5 in Miryoku
+&trackpad_listener {
     status = "okay";
     scroller {
         layers = <4>;
     };
+};
+
+// Shield default is &mo 4 (beekeeb's mouse-button layer); Miryoku's is MOUSE = 5
+&is_touching_processor {
+    bindings = <&mo 5>;
 };
